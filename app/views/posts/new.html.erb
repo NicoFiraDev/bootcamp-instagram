@@ -1,0 +1,35 @@
+<section class="section-form">
+
+    <% if @post.errors.full_messages.length > 0 %>
+      <div class="form__error">
+        <% @post.errors.full_messages.each do |error| %>
+          <p><%= error %></p>
+        <% end %>
+      </div>
+    <% end %>
+
+  <% flash.each do |val| %>
+    #<%= val %>
+  <% end %>
+  
+  <%= form_for @post, html: {class: 'form'} do |f| %>
+  <div class="form__group">
+    <%= f.label "Image URL", :image, class: 'form__label' %>
+    <%= f.text_field :image, class: 'form__input' %>
+  </div>
+  <div class="form__group">
+    <%= f.label "Image text", :text, class: 'form__label' %>
+    <%= f.text_field :text, class: 'form__input' %>
+  </div>
+  <div class="form__group">
+    <%= f.label "Image likes", :likes, class: 'form__label' %>
+    <%= f.text_field :likes, class: 'form__input', type: 'number' %>
+  </div>
+  <div class="form__group">
+    <%= f.label "Image comments", :comment, class: 'form__label' %>
+    <%= f.text_area :comments, size: "60x12", class: 'form__input' %>
+  </div>
+  <%= f.submit "Create", class: 'btn btn--welcome btn--green' %>
+<% end %>
+</section>
+

@@ -1,0 +1,11 @@
+<%= form_for @post do |f| %>
+  <%= f.label "Image URL", :image %>
+  <%= f.text_field :image %>
+  <%= f.label "Image text", :text %>
+  <%= f.text_field :text %>
+  <%= f.label "Image likes", :likes %>
+  <%= f.text_field :likes %>
+  <%= f.label "Image comments", :comment %>
+  <%= f.text_area :comments, size: "60x12" %>
+  <%= f.submit "Update" %>
+<% end %>

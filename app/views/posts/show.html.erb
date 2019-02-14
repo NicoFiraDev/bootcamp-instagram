@@ -1,0 +1,24 @@
+<div class="buttons">
+  <a href="<%= posts_path %>" class="btn btn--white">Home</a>
+  <a href="<%= new_post_path %>" class="btn btn--green">Create new post</a>
+</div>
+
+<section class="section-posts">
+  <div class="post">
+    <figure class="post__img-box">
+      <img src="<%= @post.image %>" class="post__img">
+      <figcaption class="post__footer">
+        <p class="post__likes"><%= @post.likes %></p> 
+        <p class="post__text"><%= @post.text %></p>
+      <figcaption> 
+    </figure>
+    <div class="post__comments">
+      <p class="post__user"><strong>Nicolas</strong></p>  
+      <p class="post__comment"><%= @post.comments %></p>
+    </div>
+    <div class="buttons buttons--post">
+      <a href="<%= edit_post_path(@post.id) %>" class="btn btn--lightgreen">Edit</a>
+      <%= link_to 'Delete', post_path(@post.id), method: :delete, class: 'btn btn--red' %>
+    </div>
+  </div>
+</section>
